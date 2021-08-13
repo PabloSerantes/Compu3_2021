@@ -33,8 +33,9 @@ void MainWindow::onQTimer1(){
     r = h/2;
 
     hour = dt.currentDateTime().time().hour();
-    minute = dt.currentDateTime().time().minute();
-    second = dt.currentDateTime().time().second();
+
+   // second = ((dt.currentDateTime().time().second()) * 6) + ((dt.currentDateTime().time().msec()) * 0.006);
+    minute = ((dt.currentDateTime().time().minute()) * 6);
 
     if(hour > 12){
         hour = hour - 12;
@@ -64,16 +65,16 @@ void MainWindow::onQTimer1(){
     paint.drawLine(w/2, r, (w/2) + x, r + y);
 
     //min
-    x = qFloor((qCos((((minute * 6) * M_PI) / 180) - (M_PI / 2))) * (r - 30) + 0.5);
-    y = qFloor((qSin((((minute * 6) * M_PI) / 180) - (M_PI / 2))) * (r - 30) + 0.5);
+    x = qFloor((qCos(((minute * M_PI) / 180) - (M_PI / 2))) * (r - 30) + 0.5);
+    y = qFloor((qSin(((minute * M_PI) / 180) - (M_PI / 2))) * (r - 30) + 0.5);
     pen.setColor(Qt::red);
     pen.setWidth(3);
     paint.setPen(pen);
     paint.drawLine(w/2, r, (w/2) + x, r + y);
 
     //sec
-    x = qFloor((qCos((((second * 6) * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
-    y = qFloor((qSin((((second * 6) * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
+    x = qFloor((qCos(((second * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
+    y = qFloor((qSin(((second * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
     pen.setColor(Qt::magenta);
     pen.setWidth(2);
     paint.setPen(pen);

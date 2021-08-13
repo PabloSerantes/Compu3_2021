@@ -33,7 +33,7 @@
    <widget class="QLCDNumber" name="lcdNumber">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>90</x>
       <y>310</y>
       <width>251</width>
       <height>31</height>
