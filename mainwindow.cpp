@@ -26,7 +26,7 @@ void MainWindow::onQTimer1(){
     QBrush brush;
     QPainter paint(QPaintBox1 -> getCanvas());
 
-    int w, h, r, hour, minute, second, x, y;
+    int w, h, r, hour, minute, second = 9, x, y;
 
     w = QPaintBox1 -> width();
     h = QPaintBox1 -> height();
@@ -34,8 +34,8 @@ void MainWindow::onQTimer1(){
 
     hour = dt.currentDateTime().time().hour();
 
-   // second = ((dt.currentDateTime().time().second()) * 6) + ((dt.currentDateTime().time().msec()) * 0.006);
-    minute = ((dt.currentDateTime().time().minute()) * 6);
+    second = ((dt.currentDateTime().time().second()) * 6) + ((dt.currentDateTime().time().msec()) * 0.006);
+    minute = ((dt.currentDateTime().time().minute()) * 6) + ((dt.currentDateTime().time().second()) * 0.08);
 
     if(hour > 12){
         hour = hour - 12;
@@ -43,7 +43,7 @@ void MainWindow::onQTimer1(){
     if(hour == 0){
         hour = 12;
     }
-    hour = ((hour * 100) + (minute * 1.6666)) / 20;
+    hour = ((hour * 100) + ((dt.currentDateTime().time().minute())*60)) / 20;
 
     ui->lcdNumber->display(dt.currentDateTime().toString("dd-MM-yyyy"));
 
