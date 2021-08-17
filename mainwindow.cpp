@@ -76,7 +76,7 @@ void MainWindow::onQTimer1(){
     x = qFloor((qCos(((second * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
     y = qFloor((qSin(((second * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
     pen.setColor(Qt::magenta);
-    pen.setWidth(2);
+    pen.s5etWidth(2);
     paint.setPen(pen);
     paint.drawLine(w/2, r, (w/2) + x, r + y);
 
