@@ -43,7 +43,7 @@ void MainWindow::onQTimer1(){
     if(hour == 0){
         hour = 12;
     }
-    hour = ((hour * 100) + ((dt.currentDateTime().time().minute())*60)) / 20;
+    hour = ((hour * 100) + ((dt.currentDateTime().time().minute())*3)) / 20;
 
     ui->lcdNumber->display(dt.currentDateTime().toString("dd-MM-yyyy"));
 
@@ -76,7 +76,7 @@ void MainWindow::onQTimer1(){
     x = qFloor((qCos(((second * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
     y = qFloor((qSin(((second * M_PI) / 180) - (M_PI / 2))) * (r - 5) + 0.5);
     pen.setColor(Qt::magenta);
-    pen.s5etWidth(2);
+    pen.setWidth(2);
     paint.setPen(pen);
     paint.drawLine(w/2, r, (w/2) + x, r + y);
 
